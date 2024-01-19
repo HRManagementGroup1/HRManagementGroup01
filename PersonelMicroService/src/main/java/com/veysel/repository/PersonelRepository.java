@@ -1,4 +1,4 @@
-package com.veysel.repository.entity;
+package com.veysel.repository;
 
 public interface PersonelRepository {
 }

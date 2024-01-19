@@ -1,2 +1,4 @@
-package com.veysel.repository.entity;public class Personel {
+package com.veysel.repository.entity;
+
+public class Personel {
 }
