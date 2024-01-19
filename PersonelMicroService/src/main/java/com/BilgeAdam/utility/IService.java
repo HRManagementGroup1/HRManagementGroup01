@@ -1,4 +1,4 @@
-package com.veysel.utility;
+package com.BilgeAdam.utility;
 
 import java.util.List;
 import java.util.Optional;

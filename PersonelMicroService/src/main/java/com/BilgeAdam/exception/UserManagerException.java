@@ -1,4 +1,4 @@
-package com.veysel.exception;
+package com.BilgeAdam.exception;
 
 import lombok.Getter;
 
