@@ -12,4 +12,8 @@ import static com.BilgeAdam.constants.RestApi.*;
 public class PersonelController {
 
     private final PersonelService personelService;
+
+    /**
+     * Gerekli Methodlar belirlecenek ve AzurDevops a öncelikle eklenilecek.LÜTFEN DİKKAT EDELİM AZURE DEVOPS KULLANALIM
+     */
 }
