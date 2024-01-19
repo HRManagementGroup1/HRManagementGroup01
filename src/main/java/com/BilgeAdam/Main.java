@@ -1,4 +1,4 @@
-package com.veysel;
+package com.BilgeAdam;
 
 public class Main {
     public static void main(String[] args) {
