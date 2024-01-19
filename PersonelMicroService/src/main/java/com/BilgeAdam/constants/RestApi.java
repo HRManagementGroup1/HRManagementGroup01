@@ -1,9 +1,9 @@
-package com.veysel.constants;
+package com.BilgeAdam.constants;
 
 public class RestApi {
 
     public static final String VERSION = "/api/v1";
-    public static final String USER = VERSION + "/user";
+    public static final String PERSONEL = VERSION + "/personel";
     public static final String FOLLOW = VERSION + "/follow";
 
     //UserController
