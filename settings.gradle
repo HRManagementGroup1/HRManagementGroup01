@@ -1,0 +1,4 @@
+rootProject.name = 'HRManagement_Group01'
+include 'ConfigServer'
+include 'PersonelMicroService'
+
