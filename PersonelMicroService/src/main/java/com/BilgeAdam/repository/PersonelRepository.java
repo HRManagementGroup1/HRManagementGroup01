@@ -1,4 +1,4 @@
-package com.veysel.repository;
+package com.BilgeAdam.repository;
 
 public interface PersonelRepository {
 }
