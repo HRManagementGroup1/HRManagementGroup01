@@ -1,4 +1,4 @@
-package com.veysel.repository.entity;
+package com.BilgeAdam.repository.entity;
 
 
 import lombok.AllArgsConstructor;

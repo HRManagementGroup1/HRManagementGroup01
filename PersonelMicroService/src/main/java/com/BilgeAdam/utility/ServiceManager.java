@@ -1,7 +1,6 @@
-package com.veysel.utility;
+package com.BilgeAdam.utility;
 
-
-import com.veysel.repository.entity.BaseEntity;
+import com.BilgeAdam.repository.entity.BaseEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.repository.MongoRepository;
