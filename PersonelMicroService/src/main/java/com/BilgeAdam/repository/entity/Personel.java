@@ -7,6 +7,8 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Data
 @SuperBuilder
 @NoArgsConstructor
@@ -19,4 +21,21 @@ public class Personel extends BaseEntity{
      *
      * Entityler buraya gelicek
      */
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String secondName;
+    private Date dateOfBirth;
+    private String placeOfBirth;
+    private String idNumber;
+    private Date hireDate;
+    private Date terminationDate;
+    private boolean activeStatus;
+    private String occupation;
+    private String department;
+    private String company;
+    private String emailAddress;
+    private String address;
+    private String phoneNumber;
+    private double salary;
 }
