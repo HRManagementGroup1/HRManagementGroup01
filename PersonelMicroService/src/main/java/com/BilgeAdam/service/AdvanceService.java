@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AdvanceService {
     private final AdvanceRepository advanceRepository;
-//    public Optional<Advance> createAdvance(AdvanceRequestDto dto){
-//
-//    }
+    public Optional<Advance> createAdvance(AdvanceRequestDto dto){
+        return Optional.empty();
+    }
 }
