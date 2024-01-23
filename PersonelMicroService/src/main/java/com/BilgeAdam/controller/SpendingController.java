@@ -20,11 +20,11 @@ import static com.BilgeAdam.constants.RestApiUrls.SPENDING;
 @RequestMapping(SPENDING)
 public class SpendingController {
     private final SpendingService spendingService;
-
+/*
     @PostMapping(RestApiUrls.CREATE)
     public ResponseEntity<Optional<Spending>> createSpending(SpendingRequestDto dto){
         return ResponseEntity.ok(spendingService.createSpending(dto));
     }
 
-
+*/
 }

@@ -20,9 +20,11 @@ import static com.BilgeAdam.constants.RestApiUrls.*;
 @RequestMapping(ADVANCE)
 public class AdvanceController {
     private final AdvanceService advanceService;
-
+/*
     @PostMapping(CREATE)
     public ResponseEntity<Optional<Advance>> createAdvance(AdvanceRequestDto dto){
         return ResponseEntity.ok(advanceService.createAdvance(dto));
     }
+
+ */
 }

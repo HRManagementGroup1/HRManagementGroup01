@@ -20,7 +20,7 @@ import java.util.Optional;
 public class AdvanceService {
     private final AdvanceRepository advanceRepository;
 private final PersonelService personelService;
-    public Optional<Advance> createAdvance(AdvanceRequestDto dto) {
+   /* public Optional<Advance> createAdvance(AdvanceRequestDto dto) {
 
         Advance advance = AdvanceMapper.INSTANCE.toAdvanceRequestDto(dto);
         dto.setState(EState.PENDING);
@@ -32,5 +32,5 @@ private final PersonelService personelService;
         if(!personelService.existsById(dto.getPersonelId()) || !PersonelService.isPersonel(dto.getPersonelId()))
             throw new PersonelManagerException(ErrorType.ADVANCE_NOT_FOUND);
 
-    }
+    }*/
 }

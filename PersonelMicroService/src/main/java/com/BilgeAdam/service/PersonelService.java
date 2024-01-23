@@ -6,6 +6,7 @@ import com.BilgeAdam.exception.ErrorType;
 import com.BilgeAdam.exception.PersonelManagerException;
 import com.BilgeAdam.repository.PersonelRepository;
 import com.BilgeAdam.repository.entity.Personel;
+import com.BilgeAdam.utility.enums.ERole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +20,14 @@ public class PersonelService {
 
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
-        if (personel.isEmpty()){
+        if (personel.isEmpty()||personel.get().getRole()== ERole.DISMISSED){
            throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
         }else {
             return true;
 
         }
     }
-          public boolean existsById(String personelId){
+        /*  public boolean existsById(String personelId){
 
         return personelRepository.existsById(personelId);
           }
@@ -51,5 +52,5 @@ public class PersonelService {
             // Personeli kaydet
             personelRepository.save(newPersonel);
         }
-    }
+    }*/
 }
