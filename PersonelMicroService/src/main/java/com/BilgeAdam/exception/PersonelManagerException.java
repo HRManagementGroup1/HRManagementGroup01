@@ -5,15 +5,15 @@ import lombok.Getter;
 
 
 @Getter
-public class UserManagerException extends RuntimeException{
+public class PersonelManagerException extends RuntimeException{
 
     private final ErrorType errorType;
 
-    public UserManagerException(ErrorType errorType, String customMessage){
+    public PersonelManagerException(ErrorType errorType, String customMessage){
         super(customMessage);
         this.errorType = errorType;
     }
-    public UserManagerException(ErrorType errorType){
+    public PersonelManagerException(ErrorType errorType){
         super(errorType.getMessage());
         this.errorType = errorType;
     }

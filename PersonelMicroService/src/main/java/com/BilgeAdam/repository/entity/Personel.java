@@ -1,41 +1,42 @@
 package com.BilgeAdam.repository.entity;
 
+
+import com.BilgeAdam.utility.enums.ERole;
+import com.BilgeAdam.utility.enums.EState;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDate;
 
-@Data
-@SuperBuilder
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Document
-public class Personel extends BaseEntity{
+
+public class Personel implements Serializable {
     @Id
-    public String id;
-    /**
-     *
-     * Entityler buraya gelicek
-     */
-    private String firstName;
-    private String middleName;
-    private String lastName;
-    private String secondName;
-    private Date dateOfBirth;
-    private String placeOfBirth;
-    private String idNumber;
-    private Date hireDate;
-    private Date terminationDate;
-    private boolean activeStatus;
-    private String occupation;
-    private String department;
-    private String company;
-    private String emailAddress;
-    private String address;
-    private String phoneNumber;
-    private double salary;
+   private String id;
+   private String name;
+   private String surname;
+   private String email;
+   private String password;
+   private String phone;
+   private String photo;
+   private String company;
+   private LocalDate dateOfBirth;
+   private LocalDate hiringDate;
+   private String department;
+   private String address;
+   private String title;
+   private double salary;
+   private ERole role;
+   private EState state;
+   private int remainingDaysOff;
+
 }

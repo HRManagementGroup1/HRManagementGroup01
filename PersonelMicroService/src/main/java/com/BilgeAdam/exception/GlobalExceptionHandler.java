@@ -1,6 +1,5 @@
 package com.BilgeAdam.exception;
 
-
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -20,9 +19,9 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
 
-    @ExceptionHandler(com.BilgeAdam.exception.UserManagerException.class)
+    @ExceptionHandler(PersonelManagerException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> handleManagerException(com.BilgeAdam.exception.UserManagerException exception) {
+    public ResponseEntity<ErrorMessage> handleManagerException(PersonelManagerException exception) {
         ErrorType errorType = exception.getErrorType();
         HttpStatus httpStatus = errorType.getHttpStatus();
         return new ResponseEntity<>(createError(errorType, exception), httpStatus);
