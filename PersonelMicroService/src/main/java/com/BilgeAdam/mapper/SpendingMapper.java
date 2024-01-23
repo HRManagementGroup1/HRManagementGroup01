@@ -11,7 +11,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SpendingMapper {
     SpendingMapper INSTANCE = Mappers.getMapper(SpendingMapper.class);
-    SpendingRequestDto toSpendingRequestDto(final Spending spending);
-    AdvanceRequestDto toAdvanceRequestDto(final Spending spending);
+    Spending toSpendingRequestDto(final SpendingRequestDto spending);
 
 }

@@ -23,6 +23,33 @@ public class PersonelService {
            throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
         }else {
             return true;
+
+        }
+    }
+          public boolean existsById(String personelId){
+
+        return personelRepository.existsById(personelId);
+          }
+          public String findByPersonelId(String personelId){
+            return personelRepository.findByPersonelId(personelId);
+          }
+    public void register(RegisterPersonelRequestDto dto, ERole callerRole) {
+        // Register işlemi
+        if (callerRole != ERole.ROLE_MANAGER) {
+            throw new PersonelManagerException(ErrorType.UNAUTHORIZED_ACCESS);
+        }
+
+        Optional<Personel> existingPersonel = personelRepository.findOptionalByEmail(dto.getEmail());
+        if (existingPersonel.isPresent()) {
+            throw new PersonelManagerException(ErrorType.REGISTRATION_ERROR);
+        } else {
+            // Yeni personel oluştur
+            Personel newPersonel = new Personel();
+            newPersonel.setEmail(dto.getEmail());
+            newPersonel.setPassword(dto.getPassword());
+
+            // Personeli kaydet
+            personelRepository.save(newPersonel);
         }
     }
 }
