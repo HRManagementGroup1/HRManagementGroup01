@@ -1,7 +1,7 @@
 package com.BilgeAdam.dto.request;
 
-import com.BilgeAdam.utility.enums.ECurrency;
-import com.BilgeAdam.utility.enums.EState;
+import com.furkan.utility.enums.ECurrency;
+import com.furkan.utility.enums.EState;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
