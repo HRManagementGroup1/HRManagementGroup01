@@ -7,7 +7,7 @@ public class RestApiUrls {
     public static final String REGISTER = API+VERSION+ "/register";
     public static final String SPENDING = API+VERSION+ "/spending";
     public static final String ADVANCE = API+VERSION+ "/advance";
-
+    public static final String PERMISSIONS = API+VERSION+ "/permissions";
 
     public static final String LOGIN = "/login";
     public static final String CREATE = "/create";
