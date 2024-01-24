@@ -1,4 +1,4 @@
-package com.bilgeadam.dto.response;
+package com.BilgeAdam.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegisterResponseDto {
-
-    private Long id;
-    private String username;
-    private String activationCode;
-
+    private String id;
+    private String name;
+    private String surname;
+    private String email;
 }
