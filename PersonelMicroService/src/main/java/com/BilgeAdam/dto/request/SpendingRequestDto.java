@@ -1,7 +1,11 @@
 package com.BilgeAdam.dto.request;
 
-import com.furkan.utility.enums.ECurrency;
-import com.furkan.utility.enums.EState;
+import com.BilgeAdam.utility.enums.ECurrency;
+import com.BilgeAdam.utility.enums.EState;
+<<<<<<<<< Temporary merge branch 1
+
+=========
+>>>>>>>>> Temporary merge branch 2
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

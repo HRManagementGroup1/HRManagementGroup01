@@ -11,6 +11,6 @@ import org.mapstruct.factory.Mappers;
 public interface AdvanceMapper {
     AdvanceMapper INSTANCE = Mappers.getMapper(AdvanceMapper.class);
 
-    Advance toAdvanceRequestDto(final AdvanceRequestDto advance);
+    Advance toAdvance(final AdvanceRequestDto advance);
 
 }

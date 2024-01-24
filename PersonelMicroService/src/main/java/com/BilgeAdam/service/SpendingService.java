@@ -14,8 +14,12 @@ import java.util.Optional;
 public class SpendingService {
     private final SpendingRepository spendingRepository;
 
-    public Optional<Spending> createSpending(SpendingRequestDto dto){
+<<<<<<<<< Temporary merge branch 1
 
+=========
+    public Optional<Spending> createSpending(SpendingRequestDto dto){
+        return Optional.empty();
     }
+>>>>>>>>> Temporary merge branch 2
 
 }
