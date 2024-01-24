@@ -6,4 +6,6 @@ buildscript {
 dependencies {
     implementation libs.springCloudConfig
     implementation libs.springBootDataMongoDB
+    implementation libs.swaggerui
+
 }
