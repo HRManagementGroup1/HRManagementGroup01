@@ -20,7 +20,8 @@ public enum ErrorType {
     ROLE_NOT_FOUND(4118,"Boyle bir kullanici rolu bulunmamaktadir..." ,HttpStatus.BAD_REQUEST ),
     SPENDING_NOT_FOUND(4119,"Harcama oluşturulamadı",HttpStatus.BAD_REQUEST),
     ADVANCE_NOT_FOUND(4120,"Avans oluşturulamadı",HttpStatus.BAD_REQUEST),
-    AUTHORITY_IS_NOT_ENOUGH(4121,"Yetki Yeterli Değil",HttpStatus.BAD_REQUEST);
+    AUTHORITY_IS_NOT_ENOUGH(4121,"Yetki Yeterli Değil",HttpStatus.BAD_REQUEST),
+    Item_Not_Found(4122,"İstenilen Zimmet Bulunamadı" ,HttpStatus.BAD_REQUEST );
 
     private int code;
     private String message;

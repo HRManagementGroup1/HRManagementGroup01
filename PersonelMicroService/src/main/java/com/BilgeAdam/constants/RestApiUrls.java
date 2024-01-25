@@ -13,4 +13,7 @@ public class RestApiUrls {
     public static final String LOGIN = "/login";
     public static final String CREATE = "/create";
 
+    public static final String FINDALL="/findAll";
+    public static final String CONFIRM="/confirm";
+
 }
