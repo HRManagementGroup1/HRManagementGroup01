@@ -26,12 +26,19 @@ public class PersonelService {
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
         if (personel.isEmpty()){
-           throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
+            throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
         }else {
             return true;
         }
     }
+<<<<<<< HEAD
 
+=======
+    // personel id bulup spending / advance service üzerinde çağırdık
+    public Optional<Personel> findById(String id){
+        return personelRepository.findById(id);
+    }
+>>>>>>> f66a1401428ac3a2a4f368e1d31dfa36406ef3cd
     public RegisterResponseDto register(RegisterRequestDto dto) {
         Personel personel= PersonelMapper.INSTANCE.fromRegisterRequestToPersonel(dto);
         personel.setState(EState.PENDING);
@@ -39,4 +46,8 @@ public class PersonelService {
         personelRepository.save(personel);
         return PersonelMapper.INSTANCE.fromPersonelToRegisterResponse(personel);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f66a1401428ac3a2a4f368e1d31dfa36406ef3cd
