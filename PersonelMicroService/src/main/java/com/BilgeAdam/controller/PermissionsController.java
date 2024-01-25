@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-import static com.BilgeAdam.constants.RestApiUrls.PERMISSIONS;
+import static com.BilgeAdam.constants.RestApiUrls.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ import static com.BilgeAdam.constants.RestApiUrls.PERMISSIONS;
 public class PermissionsController {
     private final PermissionsService permissionsService;
 
-    @PostMapping(RestApiUrls.CREATE)
+    @PostMapping(CREATE)
     public ResponseEntity<Optional<Permissions>> createPermissions(PermissionRequestDto dto){
         return ResponseEntity.ok(permissionsService.createPermissions(dto));
     }

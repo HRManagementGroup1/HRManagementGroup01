@@ -13,7 +13,7 @@ ext {
     ]
 //    Burada ise eklemek istediğimiz bağımlılıklar için bir liste oluşturuyoruz.
     libs = [
-
+            cloudinary                 :"com.cloudinary:cloudinary-http44:1.27.0",
             springBootStarterWeb       : "org.springframework.boot:spring-boot-starter-web:$versions.springBoot",
             springBootDataJpa          : "org.springframework.boot:spring-boot-starter-data-jpa:$versions.springBoot",
             springBootDataMongoDB      : "org.springframework.boot:spring-boot-starter-data-mongodb:$versions.springBoot",

@@ -19,7 +19,9 @@ public class BreaksAndShifts {
     private String id;
     private String personelId;
     private EType type;
-    private LocalDate BSStartingDate;
-    private LocalDate BSEndingDate;
-    private double BSTotalTime;
+    private LocalDate bSStartingDate;
+    private LocalDate bSEndingDate;
+    private double bSTotalTime;
+    private LocalDate responseDate;
+
 }

@@ -1,5 +1,6 @@
 package com.BilgeAdam.repository.entity;
 
+import com.BilgeAdam.utility.enums.EItemState;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +15,20 @@ import java.time.LocalDate;
 @Data
 @Document
 public class Items {
-    @Id
+   @Id
    private String id;
    private String personelId;
+   private String personelName;
+   private String personelSurname;
+   private String tcno;
    private LocalDate startingDate;
    private LocalDate endingDate;
    private String name;
+   private String managerName;
+   private String managerSurname;
+   private String ApprovedName;
+   private String ApprovedSurname;
+   private EItemState itemState;
+   private LocalDate createAt;
+   private LocalDate updateAt;
 }

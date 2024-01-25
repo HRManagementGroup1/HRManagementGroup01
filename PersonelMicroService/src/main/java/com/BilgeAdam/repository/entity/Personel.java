@@ -20,10 +20,11 @@ import java.time.LocalDate;
 @Document
 
 public class Personel implements Serializable {
-    @Id
+   @Id
    private String id;
    private String name;
    private String surname;
+   private String tcno;
    private String email;
    private String password;
    private String phone;

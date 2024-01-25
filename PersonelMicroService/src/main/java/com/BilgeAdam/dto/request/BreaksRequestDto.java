@@ -1,24 +1,20 @@
 package com.BilgeAdam.dto.request;
 
-import com.BilgeAdam.utility.enums.ECurrency;
-import com.BilgeAdam.utility.enums.EState;
+import com.BilgeAdam.utility.enums.EType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class AdvanceRequestDto {
+public class BreaksRequestDto {
     String personelId;
-    double amount;
-    LocalDate date;
-    EState state;
-    LocalDate responseDate;
-    ECurrency currency;
-
+    EType type;
+    LocalDate breakStartingDate;
+    LocalDate breakEndingDate;
+    double BSTotalTime;
 }

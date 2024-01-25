@@ -7,9 +7,18 @@ public class RestApiUrls {
     public static final String REGISTER = API+VERSION+ "/register";
     public static final String SPENDING = API+VERSION+ "/spending";
     public static final String ADVANCE = API+VERSION+ "/advance";
+    public static final String ITEMS = API+VERSION+ "/items";
     public static final String PERMISSIONS = API+VERSION+ "/permissions";
+    public static final String BREAKSANDSHIFTS = API+VERSION+ "/breaks-and-shifts";
 
     public static final String LOGIN = "/login";
     public static final String CREATE = "/create";
+    public static final String CREATEBREAKS = "/create-breaks";
+
+    public static final String CREATESHIFTS = "/create-shifts";
+
+    public static final String FINDALL="/findAll";
+    public static final String CONFIRM="/confirm";
+
 
 }

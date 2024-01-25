@@ -7,6 +7,7 @@ import com.BilgeAdam.dto.response.RegisterResponseDto;
 import com.BilgeAdam.service.PersonelService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,13 +24,12 @@ public class PersonelController {
     }
 
 
-    /**
-     * Gerekli Methodlar belirlecenek ve AzurDevops a öncelikle eklenilecek.LÜTFEN DİKKAT EDELİM AZURE DEVOPS KULLANALIM
-     */
 
-    @PostMapping(REGISTER)
-    public ResponseEntity<RegisterResponseDto> register(@RequestBody @Valid RegisterRequestDto dto){
+    @PostMapping(value = REGISTER, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<RegisterResponseDto> register(@RequestBody @Valid @ModelAttribute RegisterRequestDto dto) {
+        System.out.println("Received TCNO: " + dto.getTcno());
         return ResponseEntity.ok(personelService.register(dto));
     }
+
 
 }

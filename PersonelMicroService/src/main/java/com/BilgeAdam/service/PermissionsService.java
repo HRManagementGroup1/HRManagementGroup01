@@ -28,7 +28,7 @@ public class PermissionsService {
         String personelId = permissionRequestDto.getPersonelId();
         Optional<Personel> personel = personelService.findById(personelId);
         if (personel == null) {
-            throw new PersonelManagerException(ErrorType.PERSONELgit_NOT_FOUND);
+            throw new PersonelManagerException(ErrorType.PERSONEL_NOT_FOUND);
         }
         permissions.setPersonelId(personelId);
         return Optional.of(permissionsRepository.save(permissions));

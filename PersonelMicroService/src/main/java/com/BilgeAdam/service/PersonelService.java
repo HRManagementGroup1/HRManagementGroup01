@@ -1,6 +1,7 @@
 package com.BilgeAdam.service;
 
 
+import com.BilgeAdam.config.CloudinaryConfig;
 import com.BilgeAdam.dto.request.LoginPersonelRequestDto;
 import com.BilgeAdam.dto.request.RegisterRequestDto;
 import com.BilgeAdam.dto.response.RegisterResponseDto;
@@ -10,10 +11,7 @@ import com.BilgeAdam.mapper.PersonelMapper;
 import com.BilgeAdam.repository.PersonelRepository;
 import com.BilgeAdam.repository.entity.Personel;
 import com.BilgeAdam.utility.enums.ERole;
-<<<<<<<<< Temporary merge branch 1
-=========
 import com.BilgeAdam.utility.enums.EState;
->>>>>>>>> Temporary merge branch 2
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,17 +23,28 @@ public class PersonelService {
 
 
     private final PersonelRepository personelRepository;
+    private final CloudinaryConfig cloudinaryConfig;
+    private static String loginUser="";
+    public String getLoginUser() {
+        return loginUser;
+    }
+
+    public void setLoginUser(String user) {
+        loginUser = user;
+    }
 
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
         if (personel.isEmpty()||personel.get().getRole()== ERole.DISMISSED){
            throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
         }else {
+            loginUser=personel.get().getId();
             return true;
 
         }
+
     }
-<<<<<<<<< Temporary merge branch 1
+
         /*  public boolean existsById(String personelId){
 
         return personelRepository.existsById(personelId);
@@ -62,14 +71,56 @@ public class PersonelService {
             personelRepository.save(newPersonel);
         }
     }*/
-=========
+
+
+    // personel id bulup spending / advance service üzerinde çağırdık
+    public Optional<Personel> findById(String id){
+        return personelRepository.findById(id);
+    }
+
+    public Optional<Personel>findPersonelByTCNO(String TCNO){
+        return personelRepository.findPersonelByTcno(TCNO);
+    }
+
+    public Optional<Personel> findByIdFromLoginUser() {
+        return personelRepository.findById(loginUser);
+    }
+
+    public Optional<Personel>findPersonelByNameAndSurname(String name,String surname){
+        return personelRepository.findPersonelByNameAndSurname(name,surname);
+    }
+
 
     public RegisterResponseDto register(RegisterRequestDto dto) {
-        Personel personel= PersonelMapper.INSTANCE.fromRegisterRequestToPersonel(dto);
-        personel.setState(EState.PENDING);
-        personel.setRole(ERole.PERSONEL);
+        System.out.println("Received TCNO in register method: " + dto.getTcno());
+
+        Personel personel = Personel.builder()
+                .name(dto.getName())
+                .surname(dto.getSurname())
+                .email(dto.getEmail())
+                .password(dto.getPassword())
+                .phone(dto.getPhone())
+                .photo(cloudinaryConfig.toTurnStringAvatar(dto.getPhoto()))
+                .company(dto.getCompany())
+                .dateOfBirth(dto.getDateOfBirth())
+                .hiringDate(dto.getHiringDate())
+                .department(dto.getDepartment())
+                .address(dto.getAddress())
+                .title(dto.getTitle())
+                .salary(dto.getSalary())
+                .role(ERole.PERSONEL)
+                .state(EState.PENDING)
+                .remainingDaysOff(dto.getRemainingDaysOff())
+                .tcno(dto.getTcno())
+                .build();
+
         personelRepository.save(personel);
         return PersonelMapper.INSTANCE.fromPersonelToRegisterResponse(personel);
     }
->>>>>>>>> Temporary merge branch 2
+
 }
+
+
+
+
+
