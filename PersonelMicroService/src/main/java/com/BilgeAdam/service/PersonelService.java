@@ -1,6 +1,7 @@
 package com.BilgeAdam.service;
 
 
+import com.BilgeAdam.config.CloudinaryConfig;
 import com.BilgeAdam.dto.request.LoginPersonelRequestDto;
 import com.BilgeAdam.dto.request.RegisterRequestDto;
 import com.BilgeAdam.dto.response.RegisterResponseDto;
@@ -22,6 +23,7 @@ public class PersonelService {
 
 
     private final PersonelRepository personelRepository;
+    private final CloudinaryConfig cloudinaryConfig;
 
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
@@ -38,9 +40,26 @@ public class PersonelService {
     }
 
     public RegisterResponseDto register(RegisterRequestDto dto) {
-        Personel personel= PersonelMapper.INSTANCE.fromRegisterRequestToPersonel(dto);
-        personel.setState(EState.PENDING);
-        personel.setRole(ERole.PERSONEL);
+
+        Personel personel= Personel.builder()
+                .name(dto.getName())
+                .surname(dto.getSurname())
+                .TCNO(dto.getTCNO())
+                .email(dto.getEmail())
+                .password(dto.getPassword())
+                .phone(dto.getPhone())
+                .photo(cloudinaryConfig.toTurnStringAvatar(dto.getPhoto()))
+                .company(dto.getCompany())
+                .dateOfBirth(dto.getDateOfBirth())
+                .hiringDate(dto.getHiringDate())
+                .department(dto.getDepartment())
+                .address(dto.getAddress())
+                .title(dto.getTitle())
+                .salary(dto.getSalary())
+                .role(ERole.PERSONEL)
+                .state(EState.PENDING)
+                .remainingDaysOff(dto.getRemainingDaysOff())
+                .build();
         personelRepository.save(personel);
         return PersonelMapper.INSTANCE.fromPersonelToRegisterResponse(personel);
     }
