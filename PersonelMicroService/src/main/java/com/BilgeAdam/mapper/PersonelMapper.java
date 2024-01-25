@@ -12,6 +12,11 @@ import org.mapstruct.factory.Mappers;
 public interface PersonelMapper {
     PersonelMapper INSTANCE = Mappers.getMapper(PersonelMapper.class);
 
+    /**
+     * MultiPart files Mapper ile Gönderilemiyor..
+     * @param personel
+     * @return
+     */
 //    Personel fromRegisterRequestToPersonel(RegisterRequestDto dto);
 
     RegisterResponseDto fromPersonelToRegisterResponse(Personel personel);

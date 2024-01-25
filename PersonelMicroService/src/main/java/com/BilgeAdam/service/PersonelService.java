@@ -39,8 +39,16 @@ public class PersonelService {
         return personelRepository.findById(id);
     }
 
-    public RegisterResponseDto register(RegisterRequestDto dto) {
+    public Optional<Personel>findPersonelByTCNO(String TCNO){
+        return personelRepository.findPersonelByTCNO(TCNO);
+    }
 
+    public Optional<Personel>findPersonelByNameAndSurname(String name,String surname){
+        return personelRepository.findPersonelByNameAndSurname(name,surname);
+    }
+
+
+    public RegisterResponseDto register(RegisterRequestDto dto) {
         Personel personel= Personel.builder()
                 .name(dto.getName())
                 .surname(dto.getSurname())

@@ -23,8 +23,6 @@ public class RegisterRequestDto {
     @NotBlank
     private String surname;
     @NotBlank
-    private String TCNO;
-    @NotBlank
     @Size(min =8, max=32, message = "Sifre minimum 8 maksimum 32 karakterden olusmalidir...")
     private String password;
     @Email
@@ -45,5 +43,7 @@ public class RegisterRequestDto {
     @NotBlank
     private EState state;
     private int remainingDaysOff;
+    @NotBlank
+    private String TCNO;
 
 }
