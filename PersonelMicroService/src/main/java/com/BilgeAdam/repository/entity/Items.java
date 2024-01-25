@@ -17,9 +17,10 @@ public class Items {
    @Id
    private String id;
    private String personelId;
-   private String TCNO;
+   private String tcno;
    private LocalDate startingDate;
    private LocalDate endingDate;
    private String name;
-   private String ApprovedPersonTCNO;
+   private String managerName;
+   private String managerSurname;
 }

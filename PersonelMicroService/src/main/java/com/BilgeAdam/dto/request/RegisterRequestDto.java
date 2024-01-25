@@ -44,6 +44,8 @@ public class RegisterRequestDto {
     private EState state;
     private int remainingDaysOff;
     @NotBlank
-    private String TCNO;
+    @Size(min = 11, max = 11, message = "TCNO 11 Karakter Olmalıdır")
+    private String tcno;
+
 
 }

@@ -14,7 +14,7 @@ public interface PersonelRepository extends MongoRepository<Personel,String> {
 
 
 
-   Optional<Personel>findPersonelByTCNO(String TCNO);
+   Optional<Personel>findPersonelByTcno(String TCNO);
 
    Optional<Personel>findPersonelByNameAndSurname(String name,String surname);
 
