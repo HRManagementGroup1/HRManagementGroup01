@@ -14,10 +14,12 @@ import java.time.LocalDate;
 @Data
 @Document
 public class Items {
-    @Id
+   @Id
    private String id;
    private String personelId;
+   private String TCNO;
    private LocalDate startingDate;
    private LocalDate endingDate;
    private String name;
+   private String ApprovedPersonTCNO;
 }
