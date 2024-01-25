@@ -26,10 +26,15 @@ public class PersonelService {
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
         if (personel.isEmpty()){
-           throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
+            throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
         }else {
             return true;
         }
+    }
+
+    // personel id bulup spending / advance service üzerinde çağırdık
+    public Optional<Personel> findById(String id){
+        return personelRepository.findById(id);
     }
 
     public RegisterResponseDto register(RegisterRequestDto dto) {
@@ -39,4 +44,8 @@ public class PersonelService {
         personelRepository.save(personel);
         return PersonelMapper.INSTANCE.fromPersonelToRegisterResponse(personel);
     }
+
 }
+
+
+
