@@ -11,6 +11,7 @@ import com.BilgeAdam.repository.entity.Personel;
 import com.BilgeAdam.utility.enums.ERole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.BilgeAdam.service.PersonelService;
 
 import java.util.Optional;
 
@@ -21,29 +22,27 @@ public class ItemsService {
     private final ItemsRepository itemsRepository;
     private final PersonelService personelService;
 
+
     public ItemsResponseDto createItems(ItemsRequestDto dto) {
-        Optional<Personel>personel=personelService.findPersonelByTCNO(dto.getTCNO());
+        Optional<Personel>personel=personelService.findPersonelByTCNO(dto.getPersonelTcno());
         if (personel.isEmpty()){
             throw new PersonelManagerException(ErrorType.PERSONEL_NOT_FOUND);
         }
-        Optional<Personel>manager=personelService.findPersonelByTCNO(dto.getApprovedPersonTCNO());
-        if(manager.isEmpty()){
-            throw new PersonelManagerException(ErrorType.PERSONEL_NOT_FOUND);
-        }if(manager.get().getRole()!= ERole.MANAGER){
+        if(personelService.findByIdFromLoginUser().get().getRole()!= ERole.MANAGER){
             throw new PersonelManagerException((ErrorType.AUTHORITY_IS_NOT_ENOUGH));
         }
         Items items = Items.builder()
                 .name(dto.getName())
                 .personelId(personel.get().getId())
-                .ApprovedPersonTCNO(manager.get().getTCNO())
+                .managerName(personelService.findByIdFromLoginUser().get().getName())
+                .managerName(personelService.findByIdFromLoginUser().get().getSurname())
                 .startingDate(dto.getStartingDate())
                 .endingDate(dto.getEndingDate())
                 .build();
         itemsRepository.save(items);
-
         return ItemsResponseDto.builder()
-                .managerName(manager.get().getName())
-                .managerSurname(manager.get().getSurname())
+                .managerName(personelService.findByIdFromLoginUser().get().getName())
+                .managerSurname(personelService.findByIdFromLoginUser().get().getSurname())
                 .Personelname(personel.get().getName())
                 .PersonelSurname(personel.get().getSurname())
                 .startingDate(items.getStartingDate())

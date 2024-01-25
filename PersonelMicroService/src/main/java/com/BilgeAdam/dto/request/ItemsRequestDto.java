@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemsRequestDto {
-    private String TCNO;
+    private String personelTcno;
     private LocalDate startingDate;
     private LocalDate endingDate;
     private String name;
-    private String ApprovedPersonTCNO;
+
 }

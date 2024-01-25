@@ -24,14 +24,24 @@ public class PersonelService {
 
     private final PersonelRepository personelRepository;
     private final CloudinaryConfig cloudinaryConfig;
+    private static String loginUser="";
+    public String getLoginUser() {
+        return loginUser;
+    }
+
+    public void setLoginUser(String user) {
+        loginUser = user;
+    }
 
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
         if (personel.isEmpty()){
             throw new PersonelManagerException(ErrorType.LOGIN_ERROR);
         }else {
+            loginUser=personel.get().getId();
             return true;
         }
+
     }
 
     // personel id bulup spending / advance service üzerinde çağırdık
@@ -40,7 +50,11 @@ public class PersonelService {
     }
 
     public Optional<Personel>findPersonelByTCNO(String TCNO){
-        return personelRepository.findPersonelByTCNO(TCNO);
+        return personelRepository.findPersonelByTcno(TCNO);
+    }
+
+    public Optional<Personel> findByIdFromLoginUser() {
+        return personelRepository.findById(loginUser);
     }
 
     public Optional<Personel>findPersonelByNameAndSurname(String name,String surname){
@@ -49,10 +63,11 @@ public class PersonelService {
 
 
     public RegisterResponseDto register(RegisterRequestDto dto) {
-        Personel personel= Personel.builder()
+        System.out.println("Received TCNO in register method: " + dto.getTcno());
+
+        Personel personel = Personel.builder()
                 .name(dto.getName())
                 .surname(dto.getSurname())
-                .TCNO(dto.getTCNO())
                 .email(dto.getEmail())
                 .password(dto.getPassword())
                 .phone(dto.getPhone())
@@ -67,7 +82,9 @@ public class PersonelService {
                 .role(ERole.PERSONEL)
                 .state(EState.PENDING)
                 .remainingDaysOff(dto.getRemainingDaysOff())
+                .tcno(dto.getTcno())
                 .build();
+
         personelRepository.save(personel);
         return PersonelMapper.INSTANCE.fromPersonelToRegisterResponse(personel);
     }

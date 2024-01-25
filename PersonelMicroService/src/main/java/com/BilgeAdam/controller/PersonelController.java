@@ -24,13 +24,12 @@ public class PersonelController {
     }
 
 
-    /**
-     * Gerekli Methodlar belirlecenek ve AzurDevops a öncelikle eklenilecek.LÜTFEN DİKKAT EDELİM AZURE DEVOPS KULLANALIM
-     */
 
-    @PostMapping(value = REGISTER,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<RegisterResponseDto> register(@RequestBody @Valid @ModelAttribute RegisterRequestDto dto){
+    @PostMapping(value = REGISTER, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<RegisterResponseDto> register(@RequestBody @Valid @ModelAttribute RegisterRequestDto dto) {
+        System.out.println("Received TCNO: " + dto.getTcno());
         return ResponseEntity.ok(personelService.register(dto));
     }
+
 
 }

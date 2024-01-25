@@ -24,7 +24,7 @@ public class Personel implements Serializable {
    private String id;
    private String name;
    private String surname;
-   private String TCNO;
+   private String tcno;
    private String email;
    private String password;
    private String phone;
