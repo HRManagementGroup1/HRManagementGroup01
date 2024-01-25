@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -31,7 +32,7 @@ public class RegisterRequestDto {
     @NotBlank
     private String phone;
     @NotBlank
-    private String photo;
+    private MultipartFile photo;
     private String company;
     private LocalDate dateOfBirth;
     private LocalDate hiringDate;
