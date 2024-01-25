@@ -15,7 +15,7 @@ public class SpendingService {
     private final SpendingRepository spendingRepository;
 
     public Optional<Spending> createSpending(SpendingRequestDto dto){
-
+        return Optional.empty();
     }
 
 }
