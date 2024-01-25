@@ -1,6 +1,6 @@
 package com.BilgeAdam.dto.response;
 
-import com.BilgeAdam.utility.enums.EItemState;
+import com.BilgeAdam.repository.entity.Personel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,12 +12,11 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemsResponseDto {
-    private String ownerName;
-    private String ownerSurname;
+public class FindAllItemResponseDto {
+    private String itemId;
+    private String personelName;
+    private String personelSurname;
     private LocalDate startingDate;
     private LocalDate endingDate;
     private String name;
-    private EItemState itemState;
-    private LocalDate createAt;
 }
