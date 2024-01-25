@@ -19,10 +19,9 @@ public class SpendingService {
     private final SpendingRepository spendingRepository;
     private final PersonelService personelService;
 
-<<<<<<< HEAD
-    public Optional<Spending> createSpending(SpendingRequestDto dto){
-        return Optional.empty();
-=======
+
+
+
     public Optional<Spending> createSpending(SpendingRequestDto spendingRequestDto) {
 
         // SpendingRequestDto'dan Spending entity'sine dönüştürme
@@ -43,7 +42,7 @@ public class SpendingService {
         // Diğer işlemleri gerçekleştirme ve harcamayı kaydetme
         // ...
         return Optional.of(spendingRepository.save(spending));
->>>>>>> f66a1401428ac3a2a4f368e1d31dfa36406ef3cd
+
     }
 
 }

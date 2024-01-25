@@ -23,13 +23,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AdvanceService {
     private final AdvanceRepository advanceRepository;
-<<<<<<< HEAD
-private final PersonelService personelService;
-    public Optional<Advance> createAdvance(AdvanceRequestDto dto) {
-=======
+
     private final PersonelService personelService;
     public Optional<Advance> createAdvance(AdvanceRequestDto advanceRequestDto) {
->>>>>>> f66a1401428ac3a2a4f368e1d31dfa36406ef3cd
+
 
         // SpendingRequestDto'dan Spending entity'sine dönüştürme
         Advance advance = AdvanceMapper.INSTANCE.toAdvance(advanceRequestDto);
@@ -49,13 +46,7 @@ private final PersonelService personelService;
         // Diğer işlemleri gerçekleştirme ve avans kaydetme
         return Optional.of(advanceRepository.save(advance));
     }
-<<<<<<< HEAD
 
-    public void addAdvanceForPersonel(AddAdvanceForPersonelRequestDto dto){
-        if(!personelService.existsById(dto.getPersonelId()) || !PersonelService.isPersonel(dto.getPersonelId()))
-            throw new PersonelManagerException(ErrorType.ADVANCE_NOT_FOUND);
 
-    }
-=======
->>>>>>> f66a1401428ac3a2a4f368e1d31dfa36406ef3cd
+
 }

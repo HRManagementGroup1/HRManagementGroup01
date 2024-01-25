@@ -1,9 +1,6 @@
 package com.BilgeAdam.dto.request;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f66a1401428ac3a2a4f368e1d31dfa36406ef3cd
 import com.BilgeAdam.utility.enums.ECurrency;
 import com.BilgeAdam.utility.enums.EState;
 import lombok.AllArgsConstructor;
