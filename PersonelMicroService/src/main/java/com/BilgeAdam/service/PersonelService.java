@@ -1,7 +1,6 @@
 package com.BilgeAdam.service;
 
 
-import com.BilgeAdam.config.CloudinaryConfig;
 import com.BilgeAdam.dto.request.LoginPersonelRequestDto;
 import com.BilgeAdam.dto.request.RegisterRequestDto;
 import com.BilgeAdam.dto.response.RegisterResponseDto;
@@ -23,7 +22,6 @@ public class PersonelService {
 
 
     private final PersonelRepository personelRepository;
-    private final CloudinaryConfig cloudinaryConfig;
 
     public Boolean login(LoginPersonelRequestDto dto) {
         Optional<Personel> personel=personelRepository.findOptionalByEmailAndPassword(dto.getEmail(),dto.getPassword());
@@ -38,7 +36,6 @@ public class PersonelService {
         Personel personel= PersonelMapper.INSTANCE.fromRegisterRequestToPersonel(dto);
         personel.setState(EState.PENDING);
         personel.setRole(ERole.PERSONEL);
-        personel.setPhoto(cloudinaryConfig.toTurnStringAvatar(dto.getPhoto()));
         personelRepository.save(personel);
         return PersonelMapper.INSTANCE.fromPersonelToRegisterResponse(personel);
     }
