@@ -1,4 +1,4 @@
-package com.veysel.java11springmaraton.fileServer.config;
+package com.BilgeAdam.config;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
